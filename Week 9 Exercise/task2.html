@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stinky Pete's Pirate Tavern</title>
+  <style>
+
+    /* Reset: remove default spacing on all elements */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Body: sky-blue background, Verdana font throughout */
+    body {
+      font-family: Verdana, sans-serif;
+      color: #330000;
+      background-color: #00BFFF;
+      padding: 15px;
+    }
+
+    /* Centre the whole page and give it a border */
+    #page {
+      max-width: 880px;
+      margin: 0 auto;
+      border: 2px solid #330000;
+    }
+
+    /* ── Header ── */
+    #header {
+      background-color: #ccaa66;
+      text-align: center;
+      padding: 22px;
+      border-bottom: 2px solid #330000;
+    }
+    #header h1 {
+      font-size: 2em;
+      color: #330000;
+    }
+
+    /* ── Two-column row: nav + main sit side by side ── */
+    #row {
+      display: flex;          /* makes children sit side by side */
+    }
+
+    /* Left navigation column */
+    #nav {
+      background-color: #E8D882;
+      width: 175px;
+      flex-shrink: 0;         /* don't let it shrink when window is small */
+      padding: 18px 14px;
+      border-right: 2px solid #330000;
+    }
+    #nav a {
+      display: block;         /* each link on its own line */
+      color: #6633cc;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+    #nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Right main content column — fills remaining space */
+    #main {
+      background-color: #f1e8b0;
+      flex: 1;                /* take all remaining width */
+      padding: 18px 22px;
+    }
+    #main p, #main li, #main address {
+      color: #330000;
+      line-height: 1.6;
+    }
+    #main ul {
+      margin: 0 0 16px 20px;
+      line-height: 1.9;
+    }
+
+    /* Pirate image floats to the right of the text */
+    #main img {
+      float: right;
+      margin: 0 0 12px 18px;
+      width: 195px;
+    }
+
+    /* ── Footer ── */
+    #footer {
+      background-color: #ccaa66;
+      text-align: center;
+      padding: 12px;
+      border-top: 2px solid #330000;
+      font-style: italic;
+      font-size: 0.85em;
+      color: #330000;
+    }
+    #footer a {
+      display: block;
+      color: #6633cc;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="page">
+
+    <div id="header">
+      <h1>Stinky Pete's Pirate Tavern</h1>
+    </div>
+
+    <div id="row">
+
+      <div id="nav">
+        <a href="#">Home</a>
+        <a href="#">Grog</a>
+        <a href="#">Shanties</a>
+        <a href="#">Become a swab</a>
+      </div>
+
+      <div id="main">
+        <img src="pirate.jpg" alt="Pirate Pete">
+        <p>Avast maties! Here ye'll be findin' all these delights...</p>
+        <ul>
+          <li>Great grog</li>
+          <li>All the rum you can drink</li>
+          <li>Good honest pirate fare like weevily biscuits and stewed rat</li>
+          <li>Wenches and swabs for every taste</li>
+          <li>Salty seadogs singin' shanties</li>
+          <li>...</li>
+        </ul>
+        <address>
+          Berth 23<br>
+          Nottingham Docks<br>
+          0115 9324567
+        </address>
+      </div>
+
+    </div>
+
+    <div id="footer">
+      Copyright &copy; 2011 Stinky Pete's Pirate Tavern
+      <a href="mailto:stinkypete@arrrr.com">stinkypete@arrrr.com</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

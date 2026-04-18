@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rees International – Who We Work With</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #f0f2f5;
+    }
+
+    /* HEADER */
+    header { background: #fff; border-bottom: 2px solid #ccc; }
+
+    .top-bar {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px 8px;
+    }
+
+    .logo-box {
+      width: 115px; height: 68px;
+      border: 2px solid #ccc;
+      position: relative;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .logo-box::before, .logo-box::after {
+      content: ''; position: absolute;
+      background: #ccc; height: 2px;
+      width: 142%; top: 50%; left: -11%;
+    }
+    .logo-box::before { transform: translateY(-50%) rotate(30deg); }
+    .logo-box::after  { transform: translateY(-50%) rotate(-30deg); }
+    .logo-box span {
+      position: absolute; bottom: 5px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px; color: #888;
+    }
+
+    nav { display: flex; gap: 3px; }
+    nav a {
+      padding: 7px 13px;
+      font-size: 13px; font-weight: 600;
+      color: #1a2e4a; text-decoration: none;
+      border: 1px solid transparent; border-radius: 3px;
+    }
+    nav a:hover { background: #f0f2f5; }
+    nav a.active { background: #2e6da4; color: #fff; border-color: #2e6da4; }
+
+    .sub-bar {
+      max-width: 980px; margin: 0 auto;
+      text-align: right; padding: 5px 20px 8px;
+      font-size: 12px; color: #888;
+      border-top: 1px solid #ccc;
+    }
+
+    /* MAIN */
+    main { max-width: 980px; margin: 0 auto; padding: 32px 20px; }
+
+    main h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 25px; color: #1a2e4a;
+      margin-bottom: 26px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+
+    .card {
+      background: #eaecef; border: 1px solid #ccc;
+      border-radius: 4px; padding: 16px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+
+    .co-logo {
+      width: 88px; height: 68px;
+      border: 1.5px solid #bbb;
+      flex-shrink: 0; position: relative; background: #fff;
+    }
+    .co-logo::before, .co-logo::after {
+      content: ''; position: absolute;
+      background: #bbb; height: 1.5px;
+      width: 130%; top: 50%; left: -15%;
+    }
+    .co-logo::before { transform: translateY(-50%) rotate(37deg); }
+    .co-logo::after  { transform: translateY(-50%) rotate(-37deg); }
+    .co-logo span {
+      position: absolute; bottom: 4px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px; color: #888;
+    }
+
+    .card-text h2 { font-size: 15px; color: #2e6da4; margin-bottom: 4px; }
+    .card-text .ceo {
+      font-size: 13px; font-style: italic;
+      padding-bottom: 7px; border-bottom: 1px solid #bbb; margin-bottom: 7px;
+    }
+    .card-text p { font-size: 13px; color: #666; line-height: 1.65; }
+
+    /* FOOTER */
+    footer { background: #fff; border-top: 2px solid #ccc; padding: 28px 20px; }
+
+    .foot-row {
+      max-width: 980px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 155px 1fr 195px 175px;
+      gap: 22px; align-items: start;
+    }
+
+    footer h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 13px; color: #1a2e4a; margin-bottom: 11px;
+    }
+
+    .sitemap ul { list-style: none; border-left: 1px solid #ccc; padding-left: 11px; }
+    .sitemap li { margin-bottom: 6px; }
+    .sitemap a { font-size: 12px; color: #333; text-decoration: none; }
+    .sitemap a:hover { color: #2e6da4; }
+
+    .testimonials p { font-size: 12px; color: #666; font-style: italic; line-height: 1.7; margin-bottom: 9px; }
+    .testimonials .sig { font-size: 12px; font-style: italic; color: #333; }
+
+    .map-box {
+      border: 1.5px solid #ccc; height: 128px;
+      position: relative; background: #e5e8ec;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .map-box::before, .map-box::after {
+      content: ''; position: absolute;
+      background: #bbb; height: 1.5px;
+      width: 130%; top: 50%; left: -15%;
+    }
+    .map-box::before { transform: translateY(-50%) rotate(33deg); }
+    .map-box::after  { transform: translateY(-50%) rotate(-33deg); }
+    .map-box span { position: relative; font-size: 11px; color: #888; background: #e5e8ec; padding: 2px 6px; z-index: 1; }
+
+    .contact address { font-style: normal; font-size: 12px; color: #333; line-height: 1.9; }
+
+    .foot-row > *:not(:last-child) { border-right: 1px solid #ccc; padding-right: 18px; }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    <div class="logo-box"><span>Logo</span></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Services</a>
+      <a href="#" class="active">Who We Work With</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+  <div class="sub-bar">Calle de tu Oficina 20, 28029, Madrid. Tel: 91 756</div>
+</header>
+
+<main>
+  <h1>Who We Work With</h1>
+  <div class="grid">
+
+    <div class="card">
+      <div class="co-logo"><span>Company Logo</span></div>
+      <div class="card-text">
+        <h2>Coca Cola</h2>
+        <div class="ceo">Steve Jobs – CEO</div>
+        <p>Working with Rees… Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="co-logo"><span>Company Logo</span></div>
+      <div class="card-text">
+        <h2>Coca Cola</h2>
+        <div class="ceo">Steve Jobs – CEO</div>
+        <p>Working with Rees… Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="co-logo"><span>Company Logo</span></div>
+      <div class="card-text">
+        <h2>Coca Cola</h2>
+        <div class="ceo">Steve Jobs – CEO</div>
+        <p>Working with Rees… Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="co-logo"><span>Company Logo</span></div>
+      <div class="card-text">
+        <h2>Coca Cola</h2>
+        <div class="ceo">Steve Jobs – CEO</div>
+        <p>Working with Rees… Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="foot-row">
+
+    <div class="sitemap">
+      <h3>Site Map</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Who We Work</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="testimonials">
+      <h3>Client Testimonials</h3>
+      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+      <div class="sig">Steve Gully,<br>CEO Windsor Foods</div>
+    </div>
+
+    <div class="map-box"><span>Google Map</span></div>
+
+    <div class="contact">
+      <h3>Where are we?</h3>
+      <address>
+        Calle de tu Oficina 20,<br>28029,<br>Madrid.<br>
+        Tel: 91 756<br>Mobile: +34<br>info@r
+      </address>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

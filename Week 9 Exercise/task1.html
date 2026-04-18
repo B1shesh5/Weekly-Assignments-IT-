@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Base font for the whole page */
+  body { font-family: Georgia, serif; font-size: 14px; }
+
+  /* Outer container — sets the total size and clips overflow */
+  div.wrap {
+    width: 610px;
+    height: 290px;
+    border: 2px solid #cccc99;
+    background-color: #ffffcc;
+    overflow: hidden;       /* hides divs that go outside this box */
+  }
+
+  /* All child divs share these base styles */
+  div.wrap > div {
+    position: relative;     /* allows left/top to shift position */
+    box-sizing: border-box; /* padding doesn't add to width */
+    border: 1px solid #777;
+  }
+
+  /* ── Header Row ── */
+  /* hdr1 sits in normal flow at the top-left corner */
+  div.hdr1 {
+    width: 205px; height: 46px;
+    background-color: #ffffff;
+    left: 0px; top: 0px;
+    font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* hdr2: shift right by 205px, pull up by 46px (its own height) */
+  div.hdr2 {
+    width: 222px; height: 46px;
+    background-color: #ffffff;
+    left: 205px; top: -46px;
+    font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* hdr3: shift right by 427px, pull up by 92px (two heights) */
+  div.hdr3 {
+    width: 183px; height: 46px;
+    background-color: #ffffff;
+    left: 427px; top: -92px;
+    font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── Column 1 Body (light blue, tall) ── */
+  div.body1 {
+    width: 205px; height: 244px;
+    background-color: #add8e6;
+    left: 0px; top: -92px;    /* pull up to sit below hdr1 */
+    padding: 10px 14px;
+  }
+  div.body1 ol {
+    margin: 6px 0 0 0;
+    padding-left: 22px;
+    line-height: 1.9;
+  }
+
+  /* ── Cell B (yellow) ── */
+  div.cell-b {
+    width: 222px; height: 64px;
+    background-color: yellow;
+    left: 205px; top: -336px; /* pulled up past: hdr1+hdr2+hdr3+body1 = 46+46+46+244=382, minus own position offset */
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3em;
+  }
+
+  /* ── Cell C (red) ── */
+  div.cell-c {
+    width: 183px; height: 64px;
+    background-color: red;
+    left: 427px; top: -400px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3em;
+  }
+
+  /* ── Body for Columns 2 & 3 (green, spans both) ── */
+  div.body23 {
+    width: 405px; height: 180px;  /* 222 + 183 = 405px wide */
+    background-color: #006400;
+    color: white;
+    left: 205px; top: -400px;
+    padding: 10px 14px;
+  }
+  div.body23 ul {
+    margin: 6px 0 0 0;
+    padding-left: 20px;
+    line-height: 1.9;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hdr1">Column 1</div>
+  <div class="hdr2">Column 2</div>
+  <div class="hdr3">Column 3</div>
+  <div class="body1">
+    A numbered list:
+    <ol>
+      <li>Able</li>
+      <li>Baker</li>
+      <li>Charlie</li>
+      <li>Delta</li>
+      <li>Echo</li>
+    </ol>
+  </div>
+  <div class="cell-b">B</div>
+  <div class="cell-c">C</div>
+  <div class="body23">
+    An unnumbered list:
+    <ul>
+      <li>Pounds</li>
+      <li>Dollars</li>
+      <li>Euro</li>
+      <li>Yen</li>
+      <li>Roubles</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

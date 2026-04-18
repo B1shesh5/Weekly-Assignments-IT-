@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page 1 - Web Design</title>
+  <style>
+ 
+    body {
+      margin: 0;
+      min-height: 100vh;
+ 
+      /* Background image */
+      background-image: url('landscape.jpg');
+      background-size: cover;
+      background-position: center;
+ 
+      /* Center the card */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+ 
+    /* Dark overlay to keep text readable */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+ 
+    /* Content card sits above the overlay */
+    .card {
+      position: relative;
+      max-width: 680px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      margin: 40px 20px;
+    }
+ 
+    h1 {
+      font-family: Georgia, serif;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+ 
+    p {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #eeeeee;
+    }
+ 
+  </style>
+</head>
+<body>
+ 
+  <div class="card">
+    <h1>What is Web Design?</h1>
+    <p>
+      Web design refers to the design of websites that are displayed on the internet.
+      It usually refers to the user experience aspects of website development rather
+      than software development. Web design used to be focused on designing websites
+      for desktop browsers; however, since the mid-2010s, design for mobile and tablet
+      browsers has become ever-increasingly important.
+    </p>
+  </div>
+ 
+</body>
+</html>
+ 

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Week 10 - JavaScript Exercises</title>
+  <style>
+    body   { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+    h2     { background: #3b82b6; color: white; padding: 8px; }
+    .box   { background: white; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }
+    input[type="text"],
+    input[type="number"] { padding: 5px; margin: 5px; }
+    button { padding: 6px 14px; background: #3b82b6; color: white; border: none; cursor: pointer; margin: 5px; }
+    button:hover { background: #2563ae; }
+    img    { width: 150px; height: 110px; object-fit: cover; margin: 5px; border: 2px solid #ccc; }
+    table  { border-collapse: collapse; width: 50%; }
+    th     { background: #3b82b6; color: white; padding: 8px; border: 1px solid #ccc; }
+    td     { padding: 8px; border: 1px solid #ccc; text-align: center; }
+  </style>
+</head>
+<body>
+
+<h1>Week 10 - JavaScript Exercises</h1>
+
+<!-- ─── Q1: Variables ─── -->
+<div class="box">
+  <h2>Q1 - Variables: Numeric, Float, String, Boolean</h2>
+  <div id="q1out"></div>
+  <script>
+    var num  = 42;          // whole number
+    var flt  = 3.14;        // decimal number
+    var str  = "Hello World"; // text
+    var bool = true;        // true or false
+
+    // put all four values onto the page
+    document.getElementById("q1out").innerHTML =
+      "Numeric: " + num  + "<br>" +
+      "Float: "   + flt  + "<br>" +
+      "String: "  + str  + "<br>" +
+      "Boolean: " + bool;
+  </script>
+</div>
+
+<!-- ─── Q2: Prompt → Alert ─── -->
+<div class="box">
+  <h2>Q2 - Input Name and Student ID</h2>
+  <script>
+    // prompt() opens a pop-up box asking the user to type something
+    var studentName = prompt("Enter your Name:");
+    var studentId   = prompt("Enter your Student ID:");
+
+    // alert() shows the collected info in one pop-up
+    alert("Name: " + studentName + "\nStudent ID: " + studentId);
+  </script>
+  <p>The prompts appeared automatically when the page loaded.</p>
+</div>
+
+<!-- ─── Q3: Grade (if-else if-else) ─── -->
+<div class="box">
+  <h2>Q3 - Grade Calculator (if-else)</h2>
+  Marks: <input type="number" id="marks" min="0" max="100">
+  <button onclick="checkGrade()">Check Grade</button>
+  <p id="q3out"></p>
+  <script>
+    function checkGrade() {
+      // read the number from the input box
+      var m = parseInt(document.getElementById("marks").value);
+      var result;
+
+      // check which range the marks fall into
+      if      (m >= 80 && m <= 100) result = "Distinction";
+      else if (m >= 60 && m < 80)   result = "First Division";
+      else if (m >= 50 && m < 60)   result = "Second Division";
+      else if (m >= 40 && m < 50)   result = "Third Division";
+      else                          result = "Fail";
+
+      document.getElementById("q3out").innerHTML = "Result: " + result;
+    }
+  </script>
+</div>
+
+<!-- ─── Q4: Day of Week (switch-case) ─── -->
+<div class="box">
+  <h2>Q4 - Day of Week (switch-case)</h2>
+  Enter 1 to 7: <input type="number" id="daynum" min="1" max="7">
+  <button onclick="showDay()">Show Day</button>
+  <p id="q4out"></p>
+  <script>
+    function showDay() {
+      var n = parseInt(document.getElementById("daynum").value);
+      var day;
+
+      // switch checks n and jumps to the matching case
+      switch (n) {
+        case 1: day = "Sunday";    break;
+        case 2: day = "Monday";    break;
+        case 3: day = "Tuesday";   break;
+        case 4: day = "Wednesday"; break;
+        case 5: day = "Thursday";  break;
+        case 6: day = "Friday";    break;
+        case 7: day = "Saturday";  break;
+        default: day = "Invalid";  // runs if no case matched
+      }
+
+      document.getElementById("q4out").innerHTML = "Day: " + day;
+    }
+  </script>
+</div>
+
+<!-- ─── Q5: Display 4 Images using for loop ─── -->
+<div class="box">
+  <h2>Q5 - Display 4 Images (for loop)</h2>
+  <div id="q5out"></div>
+  <script>
+    // loop runs 4 times: i = 1, 2, 3, 4
+    // each time it adds one <img> tag to the page
+    for (var i = 1; i <= 4; i++) {
+      document.getElementById("q5out").innerHTML +=
+        '<img src="' + i + '.jpg" alt="Image ' + i + '">';
+    }
+  </script>
+</div>
+
+<!-- ─── Q6: Multiplication Table of 5 ─── -->
+<div class="box">
+  <h2>Q6 - Multiplication Table of 5</h2>
+  <div id="q6out"></div>
+  <script>
+    // loop counts from 1 to 10 and prints each line
+    for (var i = 1; i <= 10; i++) {
+      document.getElementById("q6out").innerHTML +=
+        "5 * " + i + " = " + (5 * i) + "<br>";
+    }
+  </script>
+</div>
+
+<!-- ─── Q7: Table with Alternate Row Colors ─── -->
+<div class="box">
+  <h2>Q7 - Table with Alternate Row Colors</h2>
+  <table>
+    <tr><th>S.N.</th><th>Name</th><th>Image</th></tr>
+    <tbody id="q7body"></tbody>
+  </table>
+  <script>
+    var tbody = document.getElementById("q7body");
+
+    for (var i = 1; i <= 4; i++) {
+      var row = tbody.insertRow(); // add a new row to the table
+
+      // even rows get light blue, odd rows stay white
+      row.style.background = (i % 2 == 0) ? "#d0e8f8" : "#ffffff";
+
+      row.insertCell(0).innerHTML = i;
+      row.insertCell(1).innerHTML = "Name " + i;
+      row.insertCell(2).innerHTML = '<img src="' + i + '.jpg" alt="Name ' + i + '">';
+    }
+  </script>
+</div>
+
+<!-- ─── Q8: Array Join Methods ─── -->
+<div class="box">
+  <h2>Q8 - Array Join Methods</h2>
+  <div id="q8out"></div>
+  <script>
+    var myColor = ["Red", "Green", "White", "Black"];
+
+    document.getElementById("q8out").innerHTML =
+      myColor.toString() + "<br>" +  // joins with comma (default)
+      myColor.join()     + "<br>" +  // same as toString()
+      myColor.join('+');             // joins with + sign instead
+  </script>
+</div>
+
+<!-- ─── Q9: Sum and Product of Array ─── -->
+<div class="box">
+  <h2>Q9 - Sum and Product of Array</h2>
+  <div id="q9out"></div>
+  <script>
+    var array   = [1, 2, 3, 4, 5, 6];
+    var sum     = 0;  // starts at 0, we add to it
+    var product = 1;  // starts at 1, we multiply into it
+
+    for (var i = 0; i < array.length; i++) {
+      sum     += array[i];   // keep adding each number
+      product *= array[i];   // keep multiplying each number
+    }
+
+    document.getElementById("q9out").innerHTML =
+      "Array: ["  + array   + "]<br>" +
+      "Sum: "     + sum     + "<br>" +
+      "Product: " + product;
+  </script>
+</div>
+
+<!-- ─── Q10: Area of Rectangle (function) ─── -->
+<div class="box">
+  <h2>Q10 - Area of Rectangle</h2>
+  Length:  <input type="number" id="len"><br>
+  Breadth: <input type="number" id="bre"><br>
+  <button onclick="calcArea()">Calculate</button>
+  <p id="q10out"></p>
+  <script>
+    // reusable function: give it length & breadth, it returns the area
+    function areaOfRectangle(length, breadth) {
+      return length * breadth;
+    }
+
+    function calcArea() {
+      var l = parseFloat(document.getElementById("len").value);
+      var b = parseFloat(document.getElementById("bre").value);
+      document.getElementById("q10out").innerHTML =
+        "Area = " + areaOfRectangle(l, b);
+    }
+  </script>
+</div>
+
+<!-- ─── Q11: Add Items to Array and Display ─── -->
+<div class="box">
+  <h2>Q11 - Add Items to Array and Display</h2>
+  <input type="text" id="text1" placeholder="Enter item">
+  <button onclick="add_element_to_array()">Add</button>
+  <button onclick="display_array()">Display</button>
+  <div id="Result"></div>
+  <script>
+    var arr = []; // start with an empty array
+    var x   = 0; // tracks the next available index
+
+    function add_element_to_array() {
+      var val = document.getElementById("text1").value;
+      if (val === "") { alert("Please enter a value!"); return; }
+
+      arr[x] = val; // store the typed value at position x
+      alert("Element: " + arr[x] + " Added at index " + x);
+      x++;          // move to the next index for next time
+      document.getElementById("text1").value = ""; // clear the box
+    }
+
+    function display_array() {
+      var output = "<hr>";
+      for (var y = 0; y < arr.length; y++) {
+        output += "Element " + y + " = " + arr[y] + "<br>";
+      }
+      document.getElementById("Result").innerHTML = output;
+    }
+  </script>
+</div>
+
+</body>
+</html>
